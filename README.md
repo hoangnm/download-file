@@ -2,6 +2,19 @@
 
 The file download tool to download multiple files from the remote servers to local machine.
 
+## Tools and Language
+
+- Python version: 3.7
+
+activating dev environment:
+`source ./dev/bin/activate`
+
+deactivating:
+`deactivate`
+
+Installing dependencies:
+`pip install -r requirements.txt`
+
 ## Notes
 
 - Supported protocols: HTTP(S) and FTP. There's a downloader.py file that can help to add new protocols easily.
@@ -19,4 +32,3 @@ The file download tool to download multiple files from the remote servers to loc
 - Allowing a user to input the destination folder. I designed the code to have an option to set the destination folder, if I can spend more time, I will handle the destination folder from user input.
 
 - Guessing file type if the url does not have an extension of the file. There is a library named python-magic that can help to detect the file type by content of the file, but the supported file types are limited.
-
