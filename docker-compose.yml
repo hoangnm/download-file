@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  my-ftp:
+    image: stilliard/pure-ftpd:hardened
+    container_name: ftpd_server_local
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
+    environment:
+      - PUBLICHOST=localhost
+      - FTP_USER_NAME=hoangnm
+      - FTP_USER_PASS=123456
+      - FTP_USER_HOME=/home/hoangnm
+      - ADDED_FLAGS=-d -d
+    volumes:
+      - ./ftp/data:/home/hoangnm/
+      - ./ftp/passwd:/etc/pure-ftpd/passwd
