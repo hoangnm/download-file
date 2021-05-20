@@ -10,7 +10,7 @@ class BaseDownloader:
         self.destination_folder = destination_folder
 
     def open(self):
-        return open(f'{self.destination_folder}/{self.file_name}', 'w')
+        return open(f'{self.destination_folder}/{self.file_name}', 'wb')
 
 
 class HttpDownloader(BaseDownloader):
@@ -33,7 +33,8 @@ class FtpDownloader(BaseDownloader):
 
 def get_downloader(url, url_parts):
     scheme = url_parts.scheme
-    if scheme == 'http' or scheme == 'https':
+    if scheme in ('http', 'https'):
         return HttpDownloader(url, url_parts)
-    elif scheme == 'ftp':
+    if scheme == 'ftp':
         return FtpDownloader(url, url_parts)
+    return None

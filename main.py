@@ -1,8 +1,7 @@
 from urllib.parse import urlparse
 import concurrent.futures
-from file_utils import remove_file, get_file_name
+from file_utils import remove_file
 from downloader import get_downloader
-
 
 
 class FileDownload:
@@ -30,8 +29,6 @@ def get_files_input():
     return urls
 
 
-
-
 def main():
     urls = get_files_input()
 
@@ -40,8 +37,11 @@ def main():
         for url in urls:
             url_parts = urlparse(url)
             downloader = get_downloader(url, url_parts)
-            fileDownload = FileDownload(downloader)
-            futures.append(executor.submit(fileDownload.download))
+            if downloader:
+                file_download = FileDownload(downloader)
+                futures.append(executor.submit(file_download.download))
+            else:
+                print('the protocol is not supported')
 
         for future in concurrent.futures.as_completed(futures):
             try:

@@ -15,6 +15,9 @@ deactivating:
 Installing dependencies:
 `pip install -r requirements.txt`
 
+Linting code:
+`pylint`
+
 ## Notes
 
 - Supported protocols: HTTP(S) and FTP. There's a downloader.py file that can help to add new protocols easily.
@@ -29,6 +32,6 @@ Installing dependencies:
   - grouping files to folders by the domains from the urls.
   - splitting the url and concatenate to the file name.
 
-- Allowing a user to input the destination folder. I designed the code to have an option to set the destination folder, if I can spend more time, I will handle the destination folder from user input.
+- Allowing a user to input the destination folder. I designed the code to have an option to set the destination folder, if I can spend more time, I will handle the destination folder from user input. Currently, a downloaded file is saved to folder files inside the source code.
 
 - Guessing file type if the url does not have an extension of the file. There is a library named python-magic that can help to detect the file type by content of the file, but the supported file types are limited.

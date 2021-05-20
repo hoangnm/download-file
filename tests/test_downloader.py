@@ -23,7 +23,7 @@ class TestHttpDownloader(unittest.TestCase):
                 rm.get(url,
                         json=return_value, status_code=200)
                 downloader.download()
-                mocked_file.assert_called_once_with(f'{downloader.destination_folder}/{file_name}', 'w')
+                mocked_file.assert_called_once_with(f'{downloader.destination_folder}/{file_name}', 'wb')
                 mocked_file().write.assert_called_once_with(json.dumps(return_value).encode())
 
 if __name__ == '__main__':
