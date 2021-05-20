@@ -10,7 +10,7 @@ class BaseDownloader:
         self.destination_folder = destination_folder
 
     def open(self):
-        return open(f'{self.destination_folder}/{self.file_name}', 'wb')
+        return open(f'{self.destination_folder}/{self.file_name}', 'w')
 
 
 class HttpDownloader(BaseDownloader):
